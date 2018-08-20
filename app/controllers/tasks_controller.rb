@@ -24,7 +24,7 @@ class TasksController < ApplicationController
   end
 
   def edit
-    @task = Message.find(params[:id])
+    @task = Task.find(params[:id])
   end
 
   def update
@@ -49,4 +49,10 @@ class TasksController < ApplicationController
   
   def message_params
     params.require(:task).permit(:content)
+  end
 end
+
+# Strong Parameter
+  def task_params
+    params.require(:task).permit(:content)
+  end
