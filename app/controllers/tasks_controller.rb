@@ -47,20 +47,18 @@ class TasksController < ApplicationController
   def task_params
     params.require(:task).permit(:content)
   end
-end
+
 
 private
 
   def set_message
-    @Task = Task.find(params[:id])
+    @task = Task.find(params[:id])
   end
 
-  def Task_params
-    params.require(:task).permit(:content)
-  end
 
 
 # Strong Parameter
   def task_params
     params.require(:task).permit(:content, :status)
   end
+end
