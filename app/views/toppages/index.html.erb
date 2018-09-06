@@ -1,0 +1,23 @@
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <% @tasks.each do |task| %>
+        <div class="form-group">
+          <%= link_to task.id, task %>
+          
+        <%= task.content %>
+      <% end %>
+    </aside>
+     <div class="col-xs-8">
+       <%= link_to 'タスクを新規作成する', new_task_path , class: 'btn btn-default' %>
+    </div>
+
+  </div>
+<% else %>
+ <div class="center jumbotron">
+  <div class="text-center">
+ <h1>Welcome to Our Tasklist</h1>
+    <%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
+  </div>
+ </div>
+<% end %>
